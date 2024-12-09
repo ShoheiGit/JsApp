@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>お客様情報管理サイト</title>
+</head>
+<body>
+    <h1>お客様情報</h1>
+
+    <!-- ユーザー詳細表示 -->
+    <div class="user-detail">
+        <h2>ユーザー詳細</h2>
+        <p><strong>名前:</strong> <span id="user-name">--</span></p>
+        <p><strong>年齢:</strong> <span id="user-age">--</span></p>
+        <p><strong>住所:</strong> <span id="user-address">--</span></p>
+        <p><strong>電話番号:</strong> <span id="user-phone">--</span></p>
+        <p><strong>ランク:</strong> <span id="user-rank">--</span></p>
+    </div>
+
+    <!-- 検索窓 -->
+    <!-- <div class="search-container">
+        <label for="search-input">検索:</label>
+        <input type="text" id="search-input" placeholder="住所で検索...">
+    </div> -->
+
+    <!-- 顧客情報テーブル -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>電話番号</th>
+            </tr>
+        </thead>
+        <tbody id="customer-table-body">
+            <!-- 顧客情報がここに挿入されます -->
+        </tbody>
+    </table>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
