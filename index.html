@@ -20,10 +20,20 @@
     </div>
 
     <!-- 検索窓 -->
-    <!-- <div class="search-container">
-        <label for="search-input">検索:</label>
+    <div class="search-container">
+        <label for="search-input">検索</label>
         <input type="text" id="search-input" placeholder="住所で検索...">
-    </div> -->
+    </div>
+
+    <!-- 絞り込み -->
+    <div class="narrow-down-rank-container">
+        <select name="narrow-down-rank" id="rank">
+            <option value="all" selected>---ランクを選択してください---</option>
+            <option value="gold">gold</option>
+            <option value="silver">silver</option>
+            <option value="bronze">bronze</option>
+        </select>
+    </div>
 
     <!-- 顧客情報テーブル -->
     <table>
@@ -34,6 +44,7 @@
                 <th>年齢</th>
                 <th>住所</th>
                 <th>電話番号</th>
+                <th>ランク</th>
             </tr>
         </thead>
         <tbody id="customer-table-body">

@@ -17,6 +17,7 @@ $(document).ready(function() {
                 <td>${user.age}</td>
                 <td>${user.address}</td>
                 <td>${user.phone_number}</td>
+                <td>${user.rank}</td>
             `;
             customerTableBody.appendChild(row);
         });
@@ -30,23 +31,40 @@ $(document).ready(function() {
 
         // 顧客詳細を表示
         if (user) {
-            document.getElementById('user-name').textContent = user.name;
-            document.getElementById('user-age').textContent = user.age;
+            document.getElementById('user-name').textContent    = user.name;
+            document.getElementById('user-age').textContent     = user.age;
             document.getElementById('user-address').textContent = user.address;
-            document.getElementById('user-phone').textContent = user.phone_number;
-            document.getElementById('user-rank').textContent = user.rank;
+            document.getElementById('user-phone').textContent   = user.phone_number;
+            document.getElementById('user-rank').textContent    = user.rank;
         } else {
             alert('指定したIDの顧客が見つかりません');
         }
     });
 
     // // 検索機能
-    // $('#search-input').on('input', function() {
-    //     const searchTerm = $(this).val().toLowerCase();  // 小文字に変換して検索
-    //     const filteredCustomers = customers.filter(customer => {
-    //         return customer.address.toLowerCase().includes(searchTerm); // 名前にキーワードが含まれているかチェック
-    //     });
+    $('#search-input').on('input', function() {
+        const searchTerm = $(this).val().toLowerCase();  // 小文字に変換して検索
+        const filteredCustomers = customers.filter(customer => {
+            return customer.address.toLowerCase().includes(searchTerm); // 名前にキーワードが含まれているかチェック
+        });
 
-    //     createCustomerTable(filteredCustomers); // フィルタリングされた顧客データをテーブルに表示
-    // });
+        createCustomerTable(filteredCustomers); // フィルタリングされた顧客データをテーブルに表示
+    });
+
+    // ランク絞り込み機能
+    $('#rank').on('change', function () {
+        let filteredCustomers = [];
+        const selectRank = $(this).val();
+
+        if(selectRank === 'all') {
+            createCustomerTable(customers);
+            return ;
+        } else {
+            filteredCustomers = customers.filter(function(customer) {
+                return customer.rank === selectRank;
+            });
+        }
+
+        createCustomerTable(filteredCustomers);
+    });
 });
